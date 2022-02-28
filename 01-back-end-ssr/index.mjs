@@ -1,10 +1,12 @@
 import express from 'express';
-import cors from 'cors'
+import cors from 'cors';
 
 const app = express();
-app.use(cors({
-  origin:'http://localhost:3000'
-}))
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+  })
+);
 
 app.set('view engine', 'ejs');
 
@@ -26,10 +28,9 @@ app.get('/users', (req, res) => {
     },
   ];
 
-
- /*  if (req.header('Accept') == 'application/json') {
+  /* if (req.header('Accept') == 'application/json') {
     return res.json({ data: users });
-  } */
+  }  */
 
   return res.json({ data: users });
 });
