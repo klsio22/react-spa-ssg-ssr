@@ -1,4 +1,4 @@
-function App({users}) {
+function App({ users }) {
   return (
     <ul>
       {users.map((user) => {
@@ -8,7 +8,7 @@ function App({users}) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const headers = new Headers();
 
   headers.append('Accept', 'application/json');
@@ -18,8 +18,8 @@ export const getServerSideProps = async () => {
     props: {
       users: data.data,
     },
+    revalidate: 5,
   };
-
 };
 
 export default App;
